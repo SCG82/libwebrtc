@@ -23,6 +23,7 @@ index 74bb964ac..8e753f910 100644
 +    }
    }
  }
+
 diff --git a/rtc_base/openssladapter.cc b/rtc_base/openssladapter.cc
 index 05de6d0778..ac9e1cd85c 100644
 --- a/rtc_base/openssladapter.cc
@@ -62,6 +63,7 @@ index 05de6d0778..ac9e1cd85c 100644
    ctx = SSL_CTX_new(mode == SSL_MODE_DTLS ? DTLS_method() : TLS_method());
  #else
    ctx = SSL_CTX_new(mode == SSL_MODE_DTLS ? DTLSv1_2_client_method()
+
 diff --git a/rtc_base/opensslstreamadapter.cc b/rtc_base/opensslstreamadapter.cc
 index fd54a082a7..88e4f98dfc 100644
 --- a/rtc_base/opensslstreamadapter.cc
@@ -212,6 +214,7 @@ index 2b4ffb6960..44be9a0d26 100644
  
  #include "rtc_base/arraysize.h"
  #include "rtc_base/checks.h"
+
 diff --git a/rtc_base/opensslidentity.cc b/rtc_base/opensslidentity.cc
 index a8c6919779..0e76753727 100644
 --- a/rtc_base/opensslidentity.cc
@@ -231,6 +234,7 @@ index a8c6919779..0e76753727 100644
        if (ERR_GET_LIB(err) == ERR_LIB_PEM &&
            ERR_GET_REASON(err) == PEM_R_NO_START_LINE) {
          break;
+
 diff --git a/rtc_base/opensslsessioncache_unittest.cc b/rtc_base/opensslsessioncache_unittest.cc
 index 6489b2bc2f..8e9605518f 100644
 --- a/rtc_base/opensslsessioncache_unittest.cc
@@ -332,6 +336,7 @@ index 2f952ae4b2..511b9ac455 100644
    SSL* ssl = SSL_new(ssl_ctx);
  
    EXPECT_FALSE(openssl::VerifyPeerCertMatchesHost(ssl, "webrtc.org"));
+
 diff --git a/third_party/usrsctp/BUILD.gn b/third_party/usrsctp/BUILD.gn
 index 94f26786e1d..4d8efbfcbb2 100644
 --- a/third_party/usrsctp/BUILD.gn
@@ -366,6 +371,7 @@ index 94f26786e1d..4d8efbfcbb2 100644
 +  }
 +
  }
+
 diff --git a/third_party/libsrtp/BUILD.gn b/third_party/libsrtp/BUILD.gn
 index 5d386d6..6faca23 100644
 --- a/third_party/libsrtp/BUILD.gn

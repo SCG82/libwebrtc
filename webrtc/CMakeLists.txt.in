@@ -53,6 +53,16 @@ include(GClient)
 include(Environment)
 include(LibWebRTCCommand)
 
+set(_WEBRTC_PATCH_DIR ${CMAKE_SOURCE_DIR}/openssl.1.1.0g-patches)
+set(_WEBRTC_PATCH_FILE ${_WEBRTC_PATCH_DIR}/openssl-1.1.0g.patch)
+
+libwebrtc_command(
+    NAME webrtc-patch
+    COMMAND ${GIT_EXECUTABLE} apply --verbose --unsafe-paths --directory=${CMAKE_SOURCE_DIR}/out/webrtc/src ${_WEBRTC_PATCH_FILE}
+    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/out/webrtc/src"
+    COMMENT "Applying OpenSSL patch"
+)
+
 libwebrtc_command(
     NAME webrtc-sync
     COMMAND ${GCLIENT_EXECUTABLE} sync --nohooks

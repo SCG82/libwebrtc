@@ -72,8 +72,8 @@ if (WEBRTC_REVISION)
   set(_WEBRTC_CMAKE_ARGS ${_WEBRTC_CMAKE_ARGS} -DWEBRTC_REVISION=${WEBRTC_REVISION})
 endif (WEBRTC_REVISION)
 
-set(_WEBRTC_PATCH_DIR ${CMAKE_SOURCE_DIR}/openssl.1.1.0g-patches)
-set(_WEBRTC_PATCH_FILE ${_WEBRTC_PATCH_DIR}/openssl-1.1.0g.patch)
+#set(_WEBRTC_PATCH_DIR ${CMAKE_SOURCE_DIR}/openssl.1.1.0g-patches)
+#set(_WEBRTC_PATCH_FILE ${_WEBRTC_PATCH_DIR}/openssl-1.1.0g.patch)
 
 #set(_WEBRTC_PATCH_1 ${_WEBRTC_PATCH_DIR}/src-0001-ENH-add-full-support-for-external-openssl-build.patch)
 #set(_WEBRTC_PATCH_2 ${_WEBRTC_PATCH_DIR}/src-0002-ENH-change-the-code-to-support-openssl-1.1.0g.patch)
@@ -94,8 +94,10 @@ ExternalProject_Add(
     STAMP_DIR ${CMAKE_BINARY_DIR}/webrtc/stamp
     TMP_DIR ${CMAKE_BINARY_DIR}/webrtc/tmp
 
-    PATCH_COMMAND git apply --verbose --unsafe-paths --directory=${CMAKE_BINARY_DIR}/webrtc/src ${_WEBRTC_PATCH_FILE}
-    UPDATE_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/webrtc/CMakeLists.txt.in ${CMAKE_BINARY_DIR}/webrtc/src/CMakeLists.txt
+    #PATCH_COMMAND git apply --verbose --unsafe-paths --directory=${CMAKE_BINARY_DIR}/webrtc/src ${_WEBRTC_PATCH_FILE}
+    PATCH_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/webrtc/CMakeLists.txt.in ${CMAKE_BINARY_DIR}/webrtc/src/CMakeLists.txt
+    #UPDATE_COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_SOURCE_DIR}/webrtc/CMakeLists.txt.in ${CMAKE_BINARY_DIR}/webrtc/src/CMakeLists.txt
+    UPDATE_COMMAND ""
     INSTALL_COMMAND ""
 
     CMAKE_ARGS

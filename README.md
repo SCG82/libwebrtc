@@ -198,6 +198,12 @@ It is possible to prevent this behavior by specifying the location to your own
 $ cmake -DDEPOT_TOOLS_PATH=/opt/depot_tools ..
 ```
 
+For M69:
+
+```
+$ cmake -DWEBRTC_BRANCH_HEAD=refs/branch-heads/69 -DDEPOT_TOOLS_PATH=/usr/local/depot_tools -DGN_EXTRA_ARGS="use_rtti=true rtc_include_tests=false" -DTARGET_OS="mac" -DTARGET_CPU="x64"  -LA ..
+```
+
 ## Configuration
 
 The library will be compiled and usable on the same host's platform and
